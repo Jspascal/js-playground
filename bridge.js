@@ -4,7 +4,7 @@ class Shape {
   }
 
   draw() {
-=    this.renderer.render();
+    this.renderer.render();
   }
 }
 
