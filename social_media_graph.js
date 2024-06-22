@@ -203,35 +203,3 @@ export function generateUserFeed(userGraph, tagTree, userId, interestedTags) {
 
     console.log(`Feed for ${userId}:`, feedContents);
 }
-
-
-const userGraph = new UserGraph();
-userGraph.addUser('Joseph');
-userGraph.addUser('Pascal');
-
-const tagTree = new TagTree();
-tagTree.addTag('root', 'IT');
-tagTree.addTag('IT', 'JavaScript');
-tagTree.addTag('JavaScript', 'DSA');
-
-userGraph.addConnection('Joseph', 'Pascal');
-
-userGraph.setUserInterests('Joseph', ['JavaScript']);
-userGraph.setUserInterests('Pascal', ['DSA']);
-
-const javascriptTag = tagTree.findTag(tagTree.root, 'JavaScript');
-if (javascriptTag) {
-    javascriptTag.addContent('Post about closures');
-    javascriptTag.addContent('Article on async/await');
-}
-
-const dsaTag = tagTree.findTag(tagTree.root, 'DSA');
-if (dsaTag) {
-    dsaTag.addContent('Video on algorithms');
-}
-
-findContentByTag(tagTree.root, 'JavaScript');
-
-generateUserFeed(userGraph, tagTree, 'Joseph', []);
-
-userGraph.removeConnection('Joseph', 'Pascal');

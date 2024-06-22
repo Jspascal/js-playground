@@ -113,7 +113,7 @@ describe('generateUserFeed', () => {
         dsaTag.addContent('Video on algorithms');
 
         const consoleSpy = jest.spyOn(console, 'log');
-        generateUserFeed(userGraph, tagTree, 'Joseph');
+        generateUserFeed(userGraph, tagTree, 'Joseph', []);
         expect(consoleSpy).toHaveBeenCalledWith('Feed for Joseph:', expect.arrayContaining(['Post about closures']));
         expect(consoleSpy).toHaveBeenCalledWith('Feed for Joseph:', expect.arrayContaining(['Article on async/await']));
         consoleSpy.mockRestore();
